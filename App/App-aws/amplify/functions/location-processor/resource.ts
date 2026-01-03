@@ -1,0 +1,7 @@
+import { defineFunction } from "@aws-amplify/backend";
+export const locationProcessor = defineFunction({
+  name: "location-processor",
+  entry: "./handler.ts",
+  timeoutSeconds: 30,
+  memoryMB: 512,
+});

@@ -1,0 +1,18 @@
+# This directory-specific .gitignore for App-aws
+# Root .gitignore handles most common patterns
+
+# Vite specific
+dist-ssr/
+*.local
+
+# Amplify specific (additional patterns)
+amplify/mock-api-resources.json
+amplify/mock-data/
+amplify/.temp/
+
+# TypeScript
+*.tsbuildinfo
+
+# App-specific build artifacts
+/dist
+/build

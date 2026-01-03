@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cabin:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    font-family: 'Cabin', 'system-ui', 'sans-serif';
+    @apply text-gray-900 bg-background;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'serif';
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+
+  /* Focus styles */
+  *:focus {
+    outline: none;
+  }
+
+  .focus\:ring-2:focus {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+}
+
+/* Custom Component Styles */
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-on-primary px-4 py-2 rounded-xl font-bodyFont font-medium hover:bg-primary-hover focus:ring-2 focus:ring-primary focus:ring-offset-2 transition duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-on-primary px-4 py-2 rounded-xl font-bodyFont font-medium hover:bg-secondary-hover focus:ring-2 focus:ring-secondary focus:ring-offset-2 transition duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-error text-on-primary px-4 py-2 rounded-xl font-bodyFont font-medium hover:bg-red-700 focus:ring-2 focus:ring-error focus:ring-offset-2 transition duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-surface rounded-xl shadow-sm border border-border-default p-5;
+  }
+
+  /* Form input styles */
+  .input {
+    @apply w-full px-4 py-3 border border-border-default rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition duration-200 font-bodyFont;
+  }
+
+  /* Navigation active state */
+  .nav-active {
+    @apply bg-primary/10 text-primary border-r-4 border-primary;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-b-2 border-primary;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  /* Spacing rhythm */
+  .section-gap {
+    @apply gap-6;
+  }
+
+  .component-gap {
+    @apply gap-4;
+  }
+
+  .element-gap {
+    @apply gap-2;
+  }
+
+  /* Panic page animations */
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .animate-checkmark {
+    animation: checkmark 0.6s ease-in-out;
+  }
+}
+
+/* Keyframe animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Map container */
+.map-container {
+  @apply h-full w-full rounded-xl overflow-hidden;
+}
+
+/* Alert notification styles */
+.alert-notification {
+  @apply fixed top-4 right-4 bg-surface border-l-4 border-primary rounded-xl shadow-sm p-4 max-w-sm z-50;
+}
+
+/* Custom scrollbar utility */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Grid pattern for map background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, #008080 1px, transparent 1px),
+    linear-gradient(to bottom, #008080 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Mobile responsive utilities */
+@media (max-width: 640px) {
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-surface border-t border-border-default px-4 py-2 z-40;
+  }
+}
